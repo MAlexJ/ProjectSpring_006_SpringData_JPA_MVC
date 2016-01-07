@@ -1,0 +1,20 @@
+CREATE TABLE content
+(
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    preview VARCHAR NOT NULL,
+    content VARCHAR NOT NULL
+);
+CREATE TABLE content_id_seq
+(
+    sequence_name VARCHAR NOT NULL,
+    last_value BIGINT NOT NULL,
+    start_value BIGINT NOT NULL,
+    increment_by BIGINT NOT NULL,
+    max_value BIGINT NOT NULL,
+    min_value BIGINT NOT NULL,
+    cache_value BIGINT NOT NULL,
+    log_cnt BIGINT NOT NULL,
+    is_cycled BOOL NOT NULL,
+    is_called BOOL NOT NULL
+);
