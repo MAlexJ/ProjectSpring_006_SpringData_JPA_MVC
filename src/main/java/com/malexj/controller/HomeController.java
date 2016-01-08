@@ -20,8 +20,8 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String get(Model model) {
-        model.addAttribute("list",service.getAll());
-        model.addAttribute("flag","home");
+        model.addAttribute(constant.LIST,service.getAll());
+        model.addAttribute(constant.FLAG,"home");
         return constant.PAGE;
     }
 }

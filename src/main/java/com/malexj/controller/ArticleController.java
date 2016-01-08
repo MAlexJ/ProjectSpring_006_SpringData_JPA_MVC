@@ -21,17 +21,17 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String get(Model model) {
-        model.addAttribute("articles", service.getAll());
-        model.addAttribute("flag", "article");
+        model.addAttribute(constant.ARTICLES, service.getAll());
+        model.addAttribute(constant.FLAG, "article");
         return constant.PAGE;
     }
 
     @RequestMapping(value = "/{category}", method = RequestMethod.GET)
     public String getArticle(Model model,
                              @PathVariable Integer category) {
-        model.addAttribute("articles", service.getAll());
-        model.addAttribute("flag", "article");
-        model.addAttribute("category", category);
+        model.addAttribute(constant.ARTICLES, service.getAll());
+        model.addAttribute(constant.FLAG, "article");
+        model.addAttribute(constant.CATEGORY, category);
         return constant.PAGE;
     }
 
