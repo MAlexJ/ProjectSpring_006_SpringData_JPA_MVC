@@ -32,15 +32,59 @@
 
 </head>
 <body>
+<jsp:include page="index_navbar.jsp" flush="true"/>
+
 <div class="container" id="page-wrapper">
-    <c:forEach items="${list}" var="item">
-        <h2><b><c:out value="${item.id}"/></b> . <c:out value="${item.name}"/></h2>
-        <i><c:out value="${item.preview}"/></i>
-        <br>
-        <c:out value="${item.content}"/>
-        <br>
-        <br>
-    </c:forEach>
+    <c:choose>
+        <c:when test="${flag eq 'home'}">
+            <div class="container">
+                <c:forEach items="${list}" var="item">
+                    <h2><b><c:out value="${item.id}"/></b> . <c:out value="${item.name}"/></h2>
+                    <i><c:out value="${item.preview}"/></i>
+                    <br>
+                    <c:out value="${item.content}"/>
+                    <br>
+                    <br>
+                </c:forEach>
+            </div>
+        </c:when>
+        <c:when test="${flag eq 'article'}">
+            <c:forEach items="${articles}" var="item">
+                <div class="well">
+                    <div class="row-fluid">
+                        <div class="row">
+                            <div class="col-xs-1">
+                                <img width="100px" height="100px" class="thumbnail"
+                                     src="<c:out value="${item.icon_ar}"/>"
+                                     alt="GridView">
+                            </div>
+                            <div class="col-xs-6 ">
+                                <div>
+                                    <h3><a href="/article/<c:out value="${item.id}"/>"> <c:out value="${item.name_ar}"/> </a></h3>
+
+                                    <p class="post-name-info">Автор: Алексей Максимов</p>
+                                    <a href="category/android" class="label label-success"><c:out
+                                            value="${item.type_ar}"/></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p><c:out value="${item.preview_ar}"/></p>
+
+                                <legend></legend>
+                                <div>
+                                    <i class="icon-time"></i> 01.08.2014
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+
+            <c:out value="${category}"/>
+        </c:when>
+    </c:choose>
 </div>
 
 <!-- jQuery -->
