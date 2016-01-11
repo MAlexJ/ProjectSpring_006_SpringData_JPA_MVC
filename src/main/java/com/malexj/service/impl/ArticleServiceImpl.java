@@ -18,4 +18,14 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> getAll() {
         return repository.findAll();
     }
+
+    @Override
+    public Article getArticle(Integer id) {
+        return repository.findOne(id);
+    }
+
+    @Override
+    public void saveArticle(Article article) {
+        repository.saveAndFlush(article);
+    }
 }

@@ -6,6 +6,7 @@
             <ul class="nav navbar-nav pull-right" id="text_header">
                 <li><a href="${pageContext.request.contextPath}/">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/article">Article</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
             </ul>
         </div>
     </div>

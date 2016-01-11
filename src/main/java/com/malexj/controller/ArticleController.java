@@ -29,9 +29,8 @@ public class ArticleController {
     @RequestMapping(value = "/{category}", method = RequestMethod.GET)
     public String getArticle(Model model,
                              @PathVariable Integer category) {
-        model.addAttribute(constant.ARTICLES, service.getAll());
-        model.addAttribute(constant.FLAG, "article");
-        model.addAttribute(constant.CATEGORY, category);
+        model.addAttribute(constant.ARTICLE, service.getArticle(category));
+        model.addAttribute(constant.FLAG, "category");
         return constant.PAGE;
     }
 

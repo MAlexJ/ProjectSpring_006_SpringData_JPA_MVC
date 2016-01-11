@@ -1,8 +1,10 @@
 package com.malexj.controller;
 
 import com.malexj.constant.Constant;
+import com.malexj.service.ContentService;
 import com.malexj.service.impl.ContentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,8 @@ public class HomeController {
     private Constant constant;
 
     @Autowired
-    private ContentServiceImpl service;
+    @Qualifier(value = "contentServiceImpl")
+    private ContentService service;
 
     @RequestMapping(method = RequestMethod.GET)
     public String get(Model model) {
