@@ -25,7 +25,17 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void saveArticle(Article article) {
+    public void insertArticle(Article article) {
+        repository.saveAndFlush(article);
+    }
+
+    @Override
+    public void delete(Integer delete_id) {
+        repository.delete(delete_id);
+    }
+
+    @Override
+    public void updateArticle(Article article) {
         repository.saveAndFlush(article);
     }
 }

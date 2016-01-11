@@ -41,7 +41,17 @@ public class AdminController {
                        @RequestParam(value = "insert_icon", required = false) String insert_icon,
                        @RequestParam(value = "insert_name", required = false) String insert_name,
                        @RequestParam(value = "insert_preview", required = false) String insert_preview,
-                       @RequestParam(value = "insert_type", required = false) String insert_type)
+                       @RequestParam(value = "insert_type", required = false) String insert_type,
+                       @RequestParam(value = "delete_id", required = false) Integer delete_id,
+                       @RequestParam(value = "update_id", required = false) Integer update_id,
+                       @RequestParam(value = "update_author", required = false) String update_author,
+                       @RequestParam(value = "update_content", required = false) String update_content,
+                       @RequestParam(value = "update_date", required = false) String update_date,
+                       @RequestParam(value = "update_icon", required = false) String update_icon,
+                       @RequestParam(value = "update_name", required = false) String update_name,
+                       @RequestParam(value = "update_preview", required = false) String update_preview,
+                       @RequestParam(value = "update_type", required = false) String update_type)
+
     {
         if (validateObject(insert_author, insert_content, insert_date, insert_icon, insert_name, insert_preview, insert_type)) {
             Article article = new Article();
@@ -52,11 +62,32 @@ public class AdminController {
             article.setName_ar(insert_name);
             article.setPreview_ar(insert_preview);
             article.setType_ar(insert_type);
-            service.saveArticle(article);
+            service.insertArticle(article);
+        }
+
+        if (validateId(delete_id)) {
+            service.delete(delete_id);
+        }
+
+        if (validateObject(update_id, update_author, update_content, update_date, update_icon, update_name, update_preview, update_type)) {
+            Article article = new Article();
+            article.setId(update_id);
+            article.setAuthor_ar(update_author);
+            article.setContent_ar(update_content);
+            article.setDate_ar(formatStringToSqlDate(update_date));
+            article.setIcon_ar(update_icon);
+            article.setName_ar(update_name);
+            article.setPreview_ar(update_preview);
+            article.setType_ar(update_type);
+            service.updateArticle(article);
         }
         model.addAttribute(constant.FLAG, "admin");
         model.addAttribute(constant.ARTICLES, service.getAll());
         return constant.PAGE;
+    }
+
+    private boolean validateId(Integer delete_id) {
+        return delete_id != null;
     }
 
     private boolean validateObject(Object... objects) {

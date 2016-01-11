@@ -9,5 +9,9 @@ public interface ArticleService {
 
     Article getArticle(Integer id);
 
-    void saveArticle(Article article);
+    void insertArticle(Article article);
+
+    void delete(Integer delete_id);
+
+    void updateArticle(Article article);
 }

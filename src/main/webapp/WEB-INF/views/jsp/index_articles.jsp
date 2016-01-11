@@ -15,7 +15,7 @@
                         <h3><a href="/article/<c:out value="${item.id}"/>"> <c:out
                                 value="${item.name_ar}"/> </a></h3>
 
-                        <p class="post-name-info">Автор: Алексей Максимов</p>
+                        <p class="post-name-info">Автор: <c:out value="${item.author_ar}"/></p>
                         <a href="category/android" class="label label-success"><c:out
                                 value="${item.type_ar}"/></a>
                     </div>

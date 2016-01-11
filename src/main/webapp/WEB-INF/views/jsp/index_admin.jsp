@@ -47,7 +47,39 @@
         </div>
     </div>
     <br>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <a href="#spoiler_update" class="btn btn-info" data-toggle="collapse">Update</a>
+
+            <div class="collapse" id="spoiler_update">
+                <div class="well">
+                    <form method="post">
+                        <jsp:include page="index_admin_update.jsp"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <br>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <a href="#spoiler_delete" class="btn btn-info" data-toggle="collapse">Delete</a>
+
+            <div class="collapse" id="spoiler_delete">
+                <div class="well">
+                    <form method="post">
+                        <jsp:include page="index_admin_delete.jsp"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <br>
     <br>
     <br>
